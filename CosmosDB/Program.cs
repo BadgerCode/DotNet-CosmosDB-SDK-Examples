@@ -3,6 +3,7 @@
 // Cosmos sample project
 // Required package: Microsoft.Azure.Cosmos
 using Microsoft.Azure.Cosmos;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 
@@ -31,11 +32,11 @@ var container = (await database.CreateContainerIfNotExistsAsync(containerName, "
 //cosmosClient.GetContainer(databaseName, containerName);
 
 
-
-
 // TYPES
 // To represent your documents, you can use classes
 //      or use Newtonsoft "JObjects", to allow for anonymous types and JSON manipulation
+// If you use your own types, the property "id" is required (case-sensitive; use [JsonProperty("id")] on the property
+//      you will also need to provide a value for your specified partition key property
 
 
 
